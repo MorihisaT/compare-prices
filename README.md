@@ -46,3 +46,4 @@
 ## ローカルでの動作
 - rails _6.0.0_
 - MySQL
+- Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code/JavaScript
