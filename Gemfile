@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rails_12factor', group: :production
 
 gem 'devise'
+
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
