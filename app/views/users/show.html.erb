@@ -5,7 +5,7 @@
       <div class="menu" id="menus">menu</div>
     </div>
     <ul class="show-menus hidden" id="pull-down">
-      <li>投稿する</li>
+      <li><%= link_to '投稿する', new_item_path %></li>
       <li>編集する</li>
       <li>削除する</li>
       <li>ログアウト</li>
@@ -19,34 +19,17 @@
 <main class="main">
   <div class="inner">
     <div class="item-wrapper">
+      <% @items.each do |item| %>
       <div class="item">
-        <img src="/assets/sample.jpg" alt="" class="item-image">
+        <%= image_tag item.image.variant(resize:'200x200'), class: 'item-image' %>
         <div class="item-body">
-          <h2 class="unit-price">単価：30円</h2>
-          <p>ティッシュ</p>
+          <h2 class="unit-price">単価：<%= item.unit_price %>円</h2>
+          <% item.tags.each do |tag| %>
+          <p>#<%= tag.name %></p>
+          <% end %>
         </div>
       </div>
-      <div class="item">
-        <img src="/assets/sample.jpg" alt="" class="item-image">
-        <div class="item-body">
-          <h2 class="unit-price">単価：30円</h2>
-          <p>ティッシュ</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/assets/sample.jpg" alt="" class="item-image">
-        <div class="item-body">
-          <h2 class="unit-price">単価：30円</h2>
-          <p>ティッシュ</p>
-        </div>
-      </div>
-      <div class="item">
-        <img src="/assets/sample.jpg" alt="" class="item-image">
-        <div class="item-body">
-          <h2 class="unit-price">単価：30円</h2>
-          <p>ティッシュ</p>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </main>
