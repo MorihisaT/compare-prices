@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = ItemsTag.new(item_params)
     if @item.valid?
       @item.save
@@ -19,7 +20,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:items_tag).permit(:image, :price, :number, :unit_price, :text, :name)
+    params.permit(:image, :price, :number, :unit_price, :text, :name).merge(user_id: current_user.id)
   end
 
 end

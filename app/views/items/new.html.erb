@@ -1,28 +1,28 @@
-<%= form_with model: @item, url: items_path, class:'form_wrap', local: true do |f| %>
+<%= form_with url: items_path, method: :post, class:'form_wrap', local: true do |f| %>
   <div class='item-form'>
     <div class='image-field'>
       <%= f.label :image, "画像" %>
-      <%= f.file_field :image %>
+      <%= f.file_field :image, id:"item-image" %>
     </div>
     <div class='price-field'>
       <%= f.label :price, "金額" %>
-      <%= f.text_field :price %>
+      <%= f.text_field :price, id:"item-price"%>
     </div>
     <div class='number-field'>
       <%= f.label :number, "個数" %>
-      <%= f.text_field :number %>
+      <%= f.text_field :number, id:"item-number" %>
     </div>
     <div class='unit-price-field'>
       <%= f.label :unit_price, "単価" %>
-      <%= f.text_field :unit_price %>
+      <%= f.text_field :unit_price, id:"item-unit-price" %>
     </div>
     <div class='tag-field', id='tag-field'>
       <%= f.label :name, "タグ" %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, id:"input-tag" %>
     </div>
     <div class='text-field'>
       <%= f.label :text, "メモ" %>
-      <%= f.text_field :text %>
+      <%= f.text_field :text, id:"item-text" %>
     </div>
   </div>
   <div class="submit-post">
