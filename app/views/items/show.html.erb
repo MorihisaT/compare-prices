@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="inner">
+    <div class="header-upper">
+      <div class="user_name"><%= @item.user.nickname %></div>
+      <div class="menu" id="menus">menu</div>
+    </div>
+    <ul class="show-menus hidden" id="pull-down">
+      <li>編集する</li>
+      <li>削除する</li>
+      <li>ログアウト</li>
+      <li><%= link_to '戻る', user_path(current_user.id) %></li>
+    </ul>
+    <div class="header-bottom">
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="inner">
+    <div class="item-container-show">
+      <div class="item-image-show"><%= image_tag @item.image.variant(resize:'300x300') %></div>
+      <div class="item-price-show">金額：<%= @item.price %>円</div>
+      <div class="item-unit-price-show">単価：<%= @item.unit_price %>円</div>
+      <% @item.tags.each do |tag| %>
+      <div class="item-tag-show">タグ：#<%= tag.name %></div>
+      <% end %>
+      <div class="item-text-show">メモ：<%= @item.text %></div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer"> 
+   <p class="copyright">Copyright © 2020 MorihisaT All rights reserved.</p>
+</footer>

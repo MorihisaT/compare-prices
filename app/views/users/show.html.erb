@@ -21,6 +21,7 @@
     <div class="item-wrapper">
       <% @items.each do |item| %>
       <div class="item">
+        <%= link_to item_path(item.id), method: :get do %>
         <%= image_tag item.image.variant(resize:'200x200'), class: 'item-image' %>
         <div class="item-body">
           <h2 class="unit-price">単価：<%= item.unit_price %>円</h2>
@@ -28,6 +29,7 @@
           <p>#<%= tag.name %></p>
           <% end %>
         </div>
+        <% end %>
       </div>
       <% end %>
     </div>
