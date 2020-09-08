@@ -14,7 +14,7 @@ class ItemsTag
 
   def save
     item = Item.create(image: image, price: price, number: number, unit_price: unit_price, text: text, user_id: current_user.id)
-    tag = Tag.create(name: name)
+    tag = Tag.create(name: name).first_or_initialize
 
     ItemTagRelation.create(item_id: item.id, tag_id: tag.id)
   end
