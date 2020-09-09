@@ -7,9 +7,7 @@
     <ul class="show-menus hidden" id="pull-down">
       <li><%= link_to '投稿する', new_item_path %></li>
       <li><%= link_to 'ユーザー編集', edit_user_path(current_user) %></li>
-      <li>削除する</li>
-      <li>ログアウト</li>
-      <li>ユーザー情報編集</li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
     </ul>
     <div class="header-bottom">
     </div>
