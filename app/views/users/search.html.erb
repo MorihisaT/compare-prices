@@ -1,7 +1,7 @@
 <header class="header">
   <div class="inner">
     <div class="header-upper">
-      <div class="user_name"><%= @user.nickname %></div>
+      <div class="user_name"><%= link_to @user.nickname, user_path(current_user.id) %></div>
       <div class="menu" id="menus">menu</div>
     </div>
     <ul class="show-menus hidden" id="pull-down">

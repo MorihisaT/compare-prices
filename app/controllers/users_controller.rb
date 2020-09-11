@@ -15,9 +15,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @user = User.find(params[:id])
+    @items = Item.search(params[:keyword], params[:id])
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:nickname, :email)
   end
+
 end
