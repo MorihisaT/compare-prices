@@ -22,6 +22,12 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  def tagsearch
+    return nil if params[:input] == ""
+    tag = Tag.where(['name LIKE ?', "%#{params[:input]}%"] )
+    render json: { inputword: tag }
+  end
+
   private
 
   def item_params
