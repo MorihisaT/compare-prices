@@ -28,6 +28,12 @@ class ItemsController < ApplicationController
     render json: { inputword: tag }
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to user_path(current_user.id)
+  end
+
   private
 
   def item_params
