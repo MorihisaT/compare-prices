@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: compare_prices_production
-  username: compare_prices
-  password: <%= ENV['COMPARE_PRICES_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
