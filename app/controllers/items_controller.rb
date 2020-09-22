@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :sample]
 
   def index
   end
@@ -32,6 +32,9 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     item.destroy
     redirect_to user_path(current_user.id)
+  end
+
+  def sample
   end
 
   private
