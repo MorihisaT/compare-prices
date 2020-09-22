@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     collection do
       get 'tagsearch'
     end
+    collection do
+      get 'sample'
+    end
   end
   
 end
