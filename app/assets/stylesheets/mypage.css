@@ -99,3 +99,47 @@
 .hidden {
   display: none;
 }
+
+/* TOPページ */
+
+.top-contain {
+  background-color: #77EEFF;
+  height: 100vh;
+}
+
+.title-contain {
+  height: 50%;
+  padding: 20px;
+  color: #ffffff;
+}
+
+.link-contain {
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  font-size: 20px;
+  border: 2px solid blue;
+  border-radius: 20px/20px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #ffffff;
+  margin-right: 10px;
+}
+
+.howtouse-btn {
+  font-size: 20px;
+  border: 2px solid blue;
+  border-radius: 20px/20px;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+
+/* sampleページ */
+
+.howto-put {
+  width: 550px;
+  height: 400px;
+}
