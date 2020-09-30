@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :move_to_mypage
   def show
     @user = User.find(params[:id])
     @items = @user.items
@@ -26,4 +27,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:nickname, :email)
   end
 
+  def move_to_mypage
+    if current_user.id != User.find(params[:id]).id
+      redirect_to user_path(current_user.id)
+    end
+  end
 end
