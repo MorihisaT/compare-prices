@@ -37,6 +37,10 @@ class ItemsController < ApplicationController
   def sample
   end
 
+  def share
+    @items = Item.order("created_at DESC")
+  end
+
   private
 
   def item_params
