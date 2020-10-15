@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :sample, :share]
+  before_action :move_to_index, except: [:index, :sample, :share, :search, :tagsearch]
 
   def index
   end
@@ -39,6 +39,10 @@ class ItemsController < ApplicationController
 
   def share
     @items = Item.order("created_at DESC")
+  end
+
+  def search
+    @items = Item.full_search(params[:keyword])
   end
 
   private

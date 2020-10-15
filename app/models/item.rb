@@ -12,4 +12,12 @@ class Item < ApplicationRecord
     end
   end
 
+  def self.full_search(search)
+    if search != ""
+      Item.joins(:tags).where(tags: {name: "#{search}"})
+    else
+      Item.all
+    end
+  end
+
 end

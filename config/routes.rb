@@ -23,6 +23,9 @@ Rails.application.routes.draw do
     collection do
       get 'share'
     end
+    collection do
+      get 'search'
+    end
   end
   
 end
