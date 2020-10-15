@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     collection do
       get 'sample'
     end
+    collection do
+      get 'share'
+    end
   end
   
 end

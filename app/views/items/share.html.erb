@@ -1,0 +1,45 @@
+<header class="header">
+  <div class="inner">
+    <div class="header-upper">
+      <div class="user_name">共有スペース</div>
+      <div class="menu" id="menus">menu</div>
+    </div>
+    <ul class="show-menus hidden" id="pull-down">
+      <li><%= link_to 'TOPページに戻る', root_path %></li>
+    </ul>
+    <div class="header-bottom">
+      <div class="search-form">
+        <%= form_with(url: search_user_path(current_user.id), local: true, method: :get, class: "search-form") do |f| %>
+          <%= f.text_field :keyword, placeholder: "タグで検索する", class: "search-input", id: "input-tag" %>
+          <%= f.submit "検索", class: "search-btn" %>
+        <% end %>
+      </div>
+      <div class="search-result" id="search-result">
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+  <div class="inner">
+    <div class="item-wrapper">
+      <% @items.each do |item| %>
+      <div class="item">
+        <%= link_to item_path(item.id), method: :get do %>
+        <%= image_tag item.image.variant(resize:'200x200'), class: 'item-image' %>
+        <div class="item-body">
+          <h2 class="unit-price">単価：<%= item.unit_price %>円</h2>
+          <% item.tags.each do |tag| %>
+          <p>#<%= tag.name %></p>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+<footer class="footer"> 
+   <p class="copyright">Copyright © 2020 MorihisaT All rights reserved.</p>
+</footer>
