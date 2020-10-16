@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :comments, only: :create
   end
   
 end

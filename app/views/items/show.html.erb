@@ -25,6 +25,23 @@
       <div class="item-text-show">メモ：<%= @item.text %></div>
     </div>
   </div>
+  <div class="comments-container">
+    <p>----------------------------------------------------------</p>
+    <%= form_with(model: [@item, @comment], local:true, class: "comment-form") do |f| %>
+      <%= f.text_area :text, placeholder: "コメントする", rows: "2"%>
+      <%= f.submit "SEND" %>
+    <% end%>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>----------------------------------------------------------</p>
+          <p><%= comment.user.nickname %>  ：  <%= l comment.created_at %></p>
+          <p><%= comment.text %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </main>
 
 <footer class="footer"> 
