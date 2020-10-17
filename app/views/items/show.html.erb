@@ -38,6 +38,7 @@
           <p>----------------------------------------------------------</p>
           <p><%= comment.user.nickname %>  ：  <%= l comment.created_at %></p>
           <p><%= comment.text %></p>
+          <p><%= link_to 'コメント削除', item_comment_path(comment.item.id, comment.id), method: :delete %></p>
         <% end %>
       <% end %>
     </div>
