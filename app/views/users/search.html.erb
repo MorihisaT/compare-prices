@@ -21,6 +21,7 @@
     </div>
   </div>
 </header>
+<hr>
 
 <main class="main">
   <div class="inner">
@@ -32,7 +33,7 @@
         <div class="item-body">
           <h2 class="unit-price">単価：<%= item.unit_price %>円</h2>
           <% item.tags.each do |tag| %>
-          <p>#<%= tag.name %></p>
+          <p class="tag-name">#<%= tag.name %></p>
           <% end %>
         </div>
         <% end %>
