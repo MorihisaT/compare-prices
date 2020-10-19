@@ -27,8 +27,8 @@
       <div class="item-text-show">メモ：<%= @item.text %></div>
     </div>
   </div>
+  <hr>
   <div class="comments-container">
-    <p>----------------------------------------------------------</p>
     <%= form_with(model: [@item, @comment], local:true, class: "comment-form") do |f| %>
       <%= f.text_area :text, placeholder: "コメントする", rows: "2"%>
       <%= f.submit "SEND" %>
@@ -37,7 +37,7 @@
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
         <% @comments.each do |comment| %>
-          <p>----------------------------------------------------------</p>
+          <hr>
           <p><%= comment.user.nickname %>  ：  <%= l comment.created_at %></p>
           <p><%= comment.text %></p>
           <p><%= link_to 'コメント削除', item_comment_path(comment.item.id, comment.id), method: :delete %></p>
@@ -47,6 +47,4 @@
   </div>
 </main>
 
-<footer class="footer"> 
-   <p class="copyright">Copyright © 2020 MorihisaT All rights reserved.</p>
-</footer>
+<%= render partial: "partial/footer" %>
