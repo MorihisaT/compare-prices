@@ -1,13 +1,15 @@
 <header class="header">
   <div class="inner">
     <div class="header-upper">
-      <div class="user_name"><%= link_to @item.user.nickname, user_path(current_user.id) %></div>
+      <div class="user_name"><%= link_to @item.user.nickname %></div>
       <div class="menu" id="menus">menu</div>
     </div>
     <ul class="show-menus hidden" id="pull-down">
+    <% if current_user %>
       <% if @item.user_id == current_user.id %>
       <li><%= link_to '削除する', item_path(@item), method: :delete %></li>
       <% end %>
+    <% end %>
       <li><%= link_to '共有スペースに戻る', share_items_path %></li>
     </ul>
     <div class="header-bottom">
@@ -29,10 +31,14 @@
   </div>
   <hr>
   <div class="comments-container">
-    <%= form_with(model: [@item, @comment], local:true, class: "comment-form") do |f| %>
-      <%= f.text_area :text, placeholder: "コメントする", rows: "2"%>
-      <%= f.submit "SEND" %>
-    <% end%>
+    <% if current_user %>
+      <%= form_with(model: [@item, @comment], local:true, class: "comment-form") do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2"%>
+        <%= f.submit "SEND" %>
+      <% end%>
+    <% else %>
+      <strong><p> *** コメントの投稿には新規登録／ログインが必要です ***</p></strong>
+    <% end %>
     <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
@@ -40,7 +46,11 @@
           <hr>
           <p><%= comment.user.nickname %>  ：  <%= l comment.created_at %></p>
           <p><%= comment.text %></p>
-          <p><%= link_to 'コメント削除', item_comment_path(comment.item.id, comment.id), method: :delete %></p>
+            <% if current_user %>
+              <% if current_user.id == comment.user_id || current_user.id == comment.item.user_id%>
+                <p><%= link_to 'コメント削除', item_comment_path(comment.item.id, comment.id), method: :delete %></p>
+              <% end %>
+            <% end %>
         <% end %>
       <% end %>
     </div>
