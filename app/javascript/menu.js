@@ -4,11 +4,11 @@ function pulldown() {
   const pullDownParents = document.getElementById("pull-down")
   
   pullDownButton.addEventListener('mouseover', function(){
-    pullDownButton.setAttribute("style", "background-color: gray;")
+    pullDownButton.setAttribute("style", "opacity: 0.8;")
   })
 
   pullDownButton.addEventListener('mouseout', function(){
-    pullDownButton.removeAttribute("style", "background-color: gray;")
+    pullDownButton.removeAttribute("style", "opacity: 0.8;")
   })
 
   pullDownButton.addEventListener('click', function() {
