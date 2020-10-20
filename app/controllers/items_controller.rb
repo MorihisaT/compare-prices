@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index, :sample, :share, :search, :tagsearch]
+  before_action :move_to_index, except: [:index, :sample, :share, :search, :tagsearch, :show]
 
   def index
   end
